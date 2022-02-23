@@ -4,12 +4,14 @@ Documentation   Signup Test Suite
 Resource  ${EXECDIR}/resources/Base.robot
 
 Test Setup     Start Session
-Test Teardown  Finish Session
+Test Teardown  After Test
 
 *** Test Cases ***
 Register a new user
 
-    ${user}  Factory User
+    [Tags]   smoke
+
+    ${user}  Factory User  faker
 
     Go To Signup form
     Fill Signup Form  ${user}
@@ -20,19 +22,19 @@ Duplicate user
 
     [Tags]     attempt_signup
 
-    ${user}                  Factory User
+    ${user}                  Factory User  faker
 
     Add User From Database   ${user}
 
     Go To Signup form
     Fill Signup Form  ${user}
     Submit Signup Form
-    Modal Content Shpuld Be  Já temos um usuário com o e-mail informado.
+    Modal Content Should Be  Já temos um usuário com o e-mail informado.
 
 Wrong Email
     [Tags]        attempt_signup
 
-    ${user}       Factory Wrong Email
+    ${user}       Factory User  wrong_email
 
     Go To Signup form
     Fill Signup Form  ${user}
@@ -79,6 +81,12 @@ Signup With Short Pass
     Alert Span Should Be  Informe uma senha com pelo menos 6 caracteres
 
 
+
+
+
+
+### peter@einerd.com
+### pwd123
 
 
 

@@ -4,12 +4,14 @@ Documentation   Login teste suite
 Resource    ${EXECDIR}/resources/Base.robot
 
 Test Setup      Start Session
-Test Teardown   Finish Session
+Test Teardown   After Test
 
 *** Test Cases ***
 User login
 
-    ${user}                  Factory User Login
+    [Tags]   smoke
+
+    ${user}                  Factory User   login
     ### REPASSEI PRO DELORIAN:
     # Add User From Database   ${user}
 
