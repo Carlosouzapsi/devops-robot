@@ -6,3 +6,4 @@ robotframework-browser==11.2.0
 robotframework-databaselibrary==1.2.4
 robotframework-pabot==2.1.0
 robotframework-requests==0.9.2
+psycopg2==2.9.1
