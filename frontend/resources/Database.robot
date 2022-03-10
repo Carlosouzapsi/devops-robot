@@ -1,12 +1,12 @@
 *** Settings ***
 Documentation  Database Helpers
 
-Library    DatabaseLibrary
+Library        DatabaseLibrary
 Library    factories/Users.py
-
+   
 *** Keywords ***
-Connect To Postgres
-    Connect To Database   psycopg2
+Connect To Postgres 
+    Connect to Database   psycopg2
     ...                   ldtptdtd
     ...                   ldtptdtd
     ...                   GUcL79Wxw3vqKyAWIc9LlMGFHSvASqo2
@@ -28,11 +28,21 @@ Insert User
 
 Users Seed
 
-    ${user}   Factory User  login
-    Insert User  ${user}
+    ${users}   Users To Insert DB
 
-    ${user2}  Factory User  be_geek
-    Insert User  ${user2}
+    FOR  ${user}  IN  @{users}
+    
+        Insert User   ${user}
+    
+    END
 
-    ${user3}  Factory User  attempt_be_geek
-    Insert User  ${user3}
+    # ${user}   Factory User  login
+
+    # Insert User  ${user}
+
+    # ${user2}  Factory User  be_geek
+    # Insert User  ${user2}
+
+    # ${user3}  Factory User  attempt_be_geek
+    # Insert User  ${user3}
+    
