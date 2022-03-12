@@ -10,7 +10,11 @@ def users_to_insert_db():
     return [
         factory_user('login'),
         factory_user('be_geek'),
-        factory_user('attempt_be_geek')        
+        factory_user('attempt_be_geek'),
+        factory_user('attempt_be_geek'),
+        factory_user('search_alien'),
+        factory_user('search_common'),
+        factory_user('searcher')        
     ]
 
 def factory_user(target):
@@ -46,7 +50,7 @@ def factory_user(target):
                 'cost': '100'
             }
         },
-        "attempt_be_geek": {
+        'attempt_be_geek': {
             'name': 'Dio',
             'lastname': 'Linux',
             'email': 'dio@linux.com',
@@ -58,6 +62,31 @@ def factory_user(target):
                 'work': 'Remoto',
                 'cost': '150'
             }
+        },
+        'searcher': {
+            'name': 'Johnny',
+            'lastname': 'Lawrence',
+            'email': 'johnny@cobrakai.com',
+            'password': 'pwd123'
+        },
+        'search_alien': {
+            'name': 'Dok',
+            'lastname': 'ock',
+            'email': 'dok@oscorp.com',
+            'password': 'pwd123',
+            'geek_profile': {
+                    'whatsapp': '21999991001',
+                    'desc': 'Faço conserto de qualquer impressora. Matricial a fita, Matricial a fita colorida, a laser, a jato de tinta e também impressora 3D.',
+                    'printer_repair': 'Sim',
+                    'work': 'Presencial',
+                    'cost': '250'
+            }
+        },
+        'search_common': {
+            'name': 'Peter',
+            'lastname': 'Parker',
+            'email': 'parker@oscorp.com',
+            'password': 'pwd123'        
         }
     }
     return data[target]

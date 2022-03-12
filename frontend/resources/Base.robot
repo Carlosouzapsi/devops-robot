@@ -15,6 +15,7 @@ Resource   actions/SignupActions.robot
 Resource   actions/GeekActions.robot
 Resource   Database.robot
 Resource   Helpers.robot
+Resource   Services.robot
 
 *** Variables ***
 ${BASE_URL}   https://getgeeks-carlosouzapsi.herokuapp.com
